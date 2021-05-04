@@ -1,0 +1,10 @@
+<h2>Top Meals</h2>
+<div class="meals-menu">
+  <! -- Angular interpolation binding within *ngFor repeater to insert current iteration's meal.id into each routerLink -->
+  <a *ngFor="let meal of meals"
+    routerLink="/detail/{{meal.id}}">
+    {{meal.name}}
+  </a>
+</div>
+
+<app-meal-search></app-meal-search>

@@ -1,0 +1,14 @@
+<! -- only display if a meal has been clicked/selected -->
+<div *ngIf="meal">
+
+  <h2>{{meal.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{meal.id}}</div>
+  <div>
+    <label for="meal-name">Meal name: </label>
+    <input id="meal-name" [(ngModel)]="meal.name" placeholder="name">
+  </div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+
+</div>

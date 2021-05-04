@@ -1,0 +1,27 @@
+<h2>My Meals</h2>
+
+<div>
+  <label id="new-meal">Meal name: </label>
+  <input for="new-meal" #mealName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(mealName.value); mealName.value=''">
+    Add meal
+  </button>
+</div>
+
+<ul class="meals">
+
+  <! -- meal holds current meal object, meals holds list from MealsComponent class
+   () around click tell Angular to listen for li element's click event
+  when user clicks in li, Angular executes onSelect(meal) expression-->
+
+  <li *ngFor="let meal of meals">
+    <a routerLink="/detail/{{meal.id}}">
+    <! -- styling a selectedMeal -- >
+      <span class="badge">{{meal.id}}</span> {{meal.name}}
+    </a>
+    <button class="delete" title="delete meal"
+      (click)="delete(meal)">x</button>
+  </li>
+</ul>
